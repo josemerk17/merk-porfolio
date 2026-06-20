@@ -1,7 +1,7 @@
 body {
   margin: 0 60px;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #E4E2E2;
   animation: fadeIn 0.5s ease-in forwards;
 }
 
@@ -47,6 +47,7 @@ main .home {
   display: flex;
   flex-direction: column;
   gap: 0;
+  margin-bottom: 130px;
 }
 main .home-container {
   display: flex;
@@ -164,8 +165,65 @@ main .sobre-mi .contenido .derecha p {
   line-height: 1.25;
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  padding: 40px 0;
+  margin-top: 60px;
+}
+footer .footer-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 footer .logo-footer {
-  width: 13px;
+  width: auto;
+  height: 54px;
+  display: flex;
+  align-items: center;
+}
+footer .logo-footer img {
+  width: auto;
+  height: 100%;
+}
+footer .social-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 10px;
+}
+footer .social-links a {
+  background-color: #000;
+  color: #E4E2E2;
+  width: 24px;
+  height: 24px;
+  padding: 15px;
+  border-radius: 50px;
+  align-items: center;
+}
+footer .footer-nav,
+footer .footer-projects {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+footer .footer-nav ul,
+footer .footer-projects ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  gap: 20px;
+}
+footer .footer-nav ul a,
+footer .footer-projects ul a {
+  color: #000;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=main.css.map */
