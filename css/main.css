@@ -1,7 +1,8 @@
+@charset "UTF-8";
 body {
   margin: 0 60px;
   font-family: Arial, sans-serif;
-  background-color: #E4E2E2;
+  background-color: #ffffff;
   animation: fadeIn 0.5s ease-in forwards;
 }
 
@@ -21,13 +22,14 @@ header .logo {
 header nav {
   background-color: #030303;
   border-radius: 50px;
-  padding: 2px;
+  padding: 20px 5px;
 }
 header nav ul {
   display: flex;
   gap: 10px;
   list-style: none;
   padding: 0 10px;
+  margin: 0;
 }
 header nav ul a {
   color: #fff;
@@ -35,12 +37,18 @@ header nav ul a {
   text-decoration: none;
   padding: 10px;
   border-radius: 20px;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 header nav ul a.active {
   background-color: #fff;
   color: #000;
   padding: 10px 20px;
+}
+header .menu-btn {
+  display: none;
+}
+header menu-mobile {
+  display: none;
 }
 
 main .home {
@@ -107,14 +115,12 @@ main .home-container p {
   font-weight: bold;
 }
 main h1 {
-  display: flex;
-  align-items: center;
   width: 100%;
-  height: 150px;
-  margin: 0px 0 0;
-  font-size: clamp(64px, 15vw, 204px);
-  font-weight: 800;
-  text-align: center;
+  margin: 0;
+  font-size: clamp(4rem, 15vw, 12.8rem);
+  font-weight: 900;
+  line-height: 0.85;
+  text-transform: uppercase;
 }
 main .sobre-mi h2 {
   margin: 50px 0 0;
@@ -232,11 +238,11 @@ footer .footer-projects ul a {
 }
 .contacto h2 {
   width: 100%;
-  height: 220px;
-  font-size: 160px;
+  margin: 0px 0 50px;
+  font-size: clamp(4rem, 15vw, 10rem);
   font-weight: 900;
-  text-align: center;
-  margin: 0;
+  line-height: 0.85;
+  text-transform: uppercase;
 }
 .contacto form {
   display: flex;
@@ -289,7 +295,8 @@ footer .footer-projects ul a {
 }
 
 .proyectos .presentacion {
-  width: 800px;
+  width: 100%;
+  height: auto;
   font-size: 40px;
   font-weight: 400;
   line-height: 1.3;
@@ -299,10 +306,179 @@ footer .footer-projects ul a {
   font-weight: 700;
 }
 .proyectos .proyectos-img {
-  width: 100%;
-  height: auto;
+  width: min(90%, 1200px);
+  margin: 0 auto;
+  margin-bottom: 100px;
   display: grid;
-  grid-template: repeat(2, 1fr)/repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 350px);
+  gap: 2rem;
+}
+.proyectos .proyectos-img .proyecto-1 {
+  grid-column: 1;
+  grid-row: 1/3;
+}
+.proyectos .proyectos-img .proyecto-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
+  display: block;
+}
+.proyectos .proyectos-img .proyecto-1 p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.proyectos .proyectos-img .proyecto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
+  display: block;
+}
+.proyectos .proyectos-img .proyecto p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.proyectos .proyectos-img a {
+  text-decoration: none;
+  color: inherit;
+}
+.proyectos .proyecto a,
+.proyectos .proyecto-1 a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 40px;
+  text-decoration: none;
+}
+.proyectos .proyecto img,
+.proyectos .proyecto-1 img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.proyectos .proyecto p,
+.proyectos .proyecto-1 p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 30px);
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 2;
+}
+.proyectos .proyecto a::before,
+.proyectos .proyecto-1 a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 1;
+}
+.proyectos .proyecto a:hover img,
+.proyectos .proyecto-1 a:hover img {
+  transform: scale(1.08);
+}
+.proyectos .proyecto a:hover::before,
+.proyectos .proyecto-1 a:hover::before {
+  opacity: 1;
+}
+.proyectos .proyecto a:hover p,
+.proyectos .proyecto-1 a:hover p {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.proyectos .home-container, .proyectos .button {
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+/*        MÓVIL              */
+/* ========================= */
+@media (max-width: 768px) {
+  body {
+    margin: 0 20px;
+  }
+  header nav {
+    display: none;
+  }
+  header .menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  header .menu-btn .material-symbols-outlined {
+    font-size: 2rem;
+  }
+  header img.logo {
+    width: 150px;
+    height: auto;
+  }
+  footer {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+  footer .footer-1,
+  footer .footer-nav,
+  footer .footer-projects {
+    width: 100%;
+    text-align: start;
+  }
+  footer logo-footer {
+    width: 100px;
+    height: auto;
+  }
+  footer .social-links {
+    justify-content: start;
+  }
+  .proyectos-img {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.5rem;
+  }
+  .proyectos-img .proyecto-1,
+  .proyectos-img .proyecto {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+  }
+  .proyectos-img .proyecto-1 a,
+  .proyectos-img .proyecto a {
+    display: block;
+    width: 100%;
+  }
+  .proyectos-img .proyecto-1 img,
+  .proyectos-img .proyecto img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+  .proyectos-img .proyecto-1 p,
+  .proyectos-img .proyecto p {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
